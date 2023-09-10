@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metric Conversion</title>
+    <!-- Include Bootstrap CSS with a dark theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #343a40;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input::placeholder {
+            line-height: normal;
+            padding: 0;
+            width: 100%; /* Ensure consistent width for placeholders */
+            align-items: end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Metric Conversion</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group text-right"> 
+                    <label for="inputKilometers">Kilometers</label>
+                    <input type="number" class="form-control" id="inputKilometers" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-right">
+                    <label for="inputMeters">Meters</label>
+                    <input type="number" class="form-control" id="inputMeters" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-right"> 
+                    <label for="inputFeet">Feet</label>
+                    <input type="number" class="form-control" id="inputFeet" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group text-right">
+                    <label for="inputInches">Inches</label>
+                    <input type="number" class="form-control" id="inputInches" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-right"> 
+                    <label for="inputCentimeters">Centimeters</label>
+                    <input type="number" class="form-control" id="inputCentimeters" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group text-right"> 
+                    <label for="inputMillimeters">Millimeters</label>
+                    <input type="number" class="form-control" id="inputMillimeters" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-primary" onclick="convert()">Convert</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        function convert() {
+            // Get input values
+            const kilometers = parseFloat(document.getElementById('inputKilometers').value);
+            const meters = kilometers * 1000;
+            const feet = meters * 3.28084;
+            const inches = feet * 12;
+            const centimeters = inches * 2.54;
+            const millimeters = centimeters * 10;
+
+            // Update input placeholders with results
+            document.getElementById('inputMeters').placeholder = `${meters} Meters`;
+            document.getElementById('inputFeet').placeholder = `${feet} Feet`;
+            document.getElementById('inputInches').placeholder = `${inches} Inches`;
+            document.getElementById('inputCentimeters').placeholder = `${centimeters} Centimeters`;
+            document.getElementById('inputMillimeters').placeholder = `${millimeters} Millimeters`;
+        }
+    </script>
+</body>
+</html>
